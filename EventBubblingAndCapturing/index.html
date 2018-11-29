@@ -1,0 +1,68 @@
+<!Doctype html>
+<html>
+    <head>
+
+
+        <style>
+            .box {
+                padding: 30px;
+                border: 2px solid black;
+                max-width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div>
+            <button on-click="changeFlag();">Toggle Button for changing the flag of eventlistener for everyone.</button>
+        </div>
+
+        <br>
+        <br>
+        <div id="firstBox" class="box">
+            <div id="secondBox" class="box">
+                <div id="thirdBox" class="box">
+                    <button id="firstButtonInsideThreeBox">Button inside inner div.</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            var firstBox = document.getElementById("firstBox");
+            var secondBox = document.getElementById("secondBox");
+            var thirdBox = document.getElementById("thirdBox");
+            var firstButtonInsideThreeBox = document.getElementById("firstButtonInsideThreeBox");
+            var firstButtonflag = true,
+                secondButtonflag = true,
+                thirdButtonflag = true,
+                buttonflag = true;
+            firstBox.addEventListener("click", firstBoxListener, firstButtonflag);
+            secondBox.addEventListener("click", secondBoxListener, secondButtonflag);
+            thirdBox.addEventListener("click", thirdBoxListener, thirdButtonflag);
+            firstButtonInsideThreeBox.addEventListener("click", buttonListener, buttonflag);
+
+            function changeFlag(){
+                firstButtonflag = false;
+                secondButtonflag = false;
+                thirdButtonflag = false;
+                buttonflag = false;
+            }
+
+            function firstBoxListener(event){
+                console.log("firstbox clicked");
+            }
+
+             function secondBoxListener(event){
+                console.log("secondBox clicked");
+            }
+
+             function thirdBoxListener(event){
+                console.log("thirdBox clicked");
+            }
+
+             function buttonListener(event){
+                console.log("button clicked"); 
+            }
+        </script>
+    </body>
+</html>
